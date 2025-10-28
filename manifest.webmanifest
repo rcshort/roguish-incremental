@@ -1,1 +1,30 @@
-{"name":"Route Incremental Game","short_name":"RouteIdle","start_url":"/","display":"standalone","background_color":"#111827","lang":"en","scope":"/","description":"An incremental game with user-directed progression paths","theme_color":"#1f2937","orientation":"portrait","icons":[{"src":"pwa-192x192.png","sizes":"192x192","type":"image/png"},{"src":"pwa-512x512.png","sizes":"512x512","type":"image/png"},{"src":"pwa-512x512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}]}
+{
+  "name": "Route Incremental Game",
+  "short_name": "RouteIdle",
+  "start_url": "/roguish-incremental/",
+  "display": "standalone",
+  "background_color": "#111827",
+  "lang": "en",
+  "scope": "/roguish-incremental/",
+  "description": "An incremental game with user-directed progression paths",
+  "theme_color": "#1f2937",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/roguish-incremental/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/roguish-incremental/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/roguish-incremental/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,1 +1,20 @@
-if(!self.define){let e,n={};const s=(s,i)=>(s=new URL(s+".js",i).href,n[s]||new Promise(n=>{if("document"in self){const e=document.createElement("script");e.src=s,e.onload=n,document.head.appendChild(e)}else e=s,importScripts(s),n()}).then(()=>{let e=n[s];if(!e)throw new Error(`Module ${s} didn’t register its module`);return e}));self.define=(i,r)=>{const o=e||("document"in self?document.currentScript.src:"")||location.href;if(n[o])return;let t={};const c=e=>s(e,o),d={module:{uri:o},exports:t,require:c};n[o]=Promise.all(i.map(e=>d[e]||c(e))).then(e=>(r(...e),t))}}define(["./workbox-b833909e"],function(e){"use strict";self.skipWaiting(),e.clientsClaim(),e.precacheAndRoute([{url:"assets/index-B_I8unfj.js",revision:null},{url:"assets/index-rvQ-FCGS.css",revision:null},{url:"index.html",revision:"7aefa15cf9793ebd06c17980c8211afd"},{url:"pwa-192x192.png",revision:"d41d8cd98f00b204e9800998ecf8427e"},{url:"pwa-512x512.png",revision:"d41d8cd98f00b204e9800998ecf8427e"},{url:"registerSW.js",revision:"040e7684281201979ea6587f2776fc69"},{url:"pwa-192x192.png",revision:"d41d8cd98f00b204e9800998ecf8427e"},{url:"pwa-512x512.png",revision:"d41d8cd98f00b204e9800998ecf8427e"},{url:"manifest.webmanifest",revision:"36ec5fa6ecf64ef2c0b9d5ee3ad365ab"}],{}),e.cleanupOutdatedCaches(),e.registerRoute(new e.NavigationRoute(e.createHandlerBoundToURL("index.html"))),e.registerRoute(/^https:\/\/fonts\.googleapis\.com\/.*/i,new e.CacheFirst({cacheName:"google-fonts-cache",plugins:[new e.ExpirationPlugin({maxEntries:10,maxAgeSeconds:31536e3}),new e.CacheableResponsePlugin({statuses:[0,200]})]}),"GET")});
+const CACHE_NAME = 'roguish-incremental-v1';
+const urlsToCache = [
+  '/roguish-incremental/',
+  '/roguish-incremental/index.html'
+];
+
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then((cache) => cache.addAll(urlsToCache))
+  );
+  self.skipWaiting();
+});
+
+self.addEventListener('fetch', (event) => {
+  event.respondWith(
+    caches.match(event.request)
+      .then((response) => response || fetch(event.request))
+  );
+});
