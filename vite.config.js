@@ -57,5 +57,6 @@ export default defineConfig({
         ]
       }
     })
-  ]
+  ],
+  base: '/roguish-incremental/',
 });
