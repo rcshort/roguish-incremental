@@ -62,7 +62,7 @@ const Header = ({ currentRoute, onRespec, onReset }) => {
           className="px-4 py-2 bg-red-600 hover:bg-red-700 rounded flex items-center gap-2"
         >
           <Settings size={16} />
-          Reset
+          Reset All
         </button>
       </div>
     </header>
